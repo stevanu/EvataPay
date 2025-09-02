@@ -185,7 +185,7 @@ const Login = () => {
               </svg>
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Dompet Online
+              Dompet Evata
             </h1>
             <p className="text-gray-600">
               Masuk untuk mengakses dashboard keuangan Anda
