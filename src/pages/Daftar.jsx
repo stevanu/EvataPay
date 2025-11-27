@@ -87,6 +87,7 @@ const LoadingSpinner = () => (
   </>
 );
 
+// Form
 const Daftar = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -120,6 +121,7 @@ const Daftar = () => {
     }
   };
 
+  // Block validate with Regex
   const validateForm = () => {
     const newErrors = {};
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -285,13 +287,13 @@ const Daftar = () => {
                   id="agreeToTerms"
                   name="agreeToTerms"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 cursor-pointer rounded"
                   checked={formData.agreeToTerms}
                   onChange={handleChange}
                 />
               </div>
 
-              <div className="ml-3 text-sm text-gray-700">
+              <div className="ml-3 text-sm text-gray-700 ">
                 <label htmlFor="agreeToTerms">Saya menyetujui</label>{" "}
                 {/* Tombol popup di luar label agar tidak trigger checkbox */}
                 <button

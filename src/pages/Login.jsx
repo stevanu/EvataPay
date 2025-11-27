@@ -223,7 +223,7 @@ const Login = () => {
                   id="remember-me"
                   name="rememberMe"
                   type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 cursor-pointer rounded"
                   checked={formData.rememberMe}
                   onChange={handleChange}
                 />

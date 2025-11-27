@@ -13,7 +13,7 @@ function Modal({ children, onClose }) {
       <div className="relative bg-white w-11/12 max-w-md p-6 rounded-2xl shadow-2xl border border-gray-200 animate-scaleIn">
         {/* Tombol Close */}
         <button
-          className="absolute top-4 right-5 text-white hover:text-gray-700 transition cursor-pointer"
+          className="absolute top-4 right-5 text-gray-500  hover:text-gray-700 transition cursor-pointer"
           onClick={onClose}
         >
           ✕
