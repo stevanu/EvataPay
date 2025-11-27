@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Terms from "../components/Terms";
+import Modal from "../components/Modal";
+import Policy from "../components/policy";
 
 // Komponen Input yang dapat digunakan kembali
 const InputField = ({
@@ -97,6 +100,8 @@ const Daftar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
+  const [showPolicy, setShowPolicy] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -285,17 +290,25 @@ const Daftar = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="ml-3 text-sm">
-                <label htmlFor="agreeToTerms" className="text-gray-700">
-                  Saya menyetujui{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    Syarat dan Ketentuan
-                  </a>{" "}
-                  serta{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    Kebijakan Privasi
-                  </a>
-                </label>
+
+              <div className="ml-3 text-sm text-gray-700">
+                <label htmlFor="agreeToTerms">Saya menyetujui</label>{" "}
+                {/* Tombol popup di luar label agar tidak trigger checkbox */}
+                <button
+                  type="button"
+                  onClick={() => setShowTerms(true)}
+                  className="text-indigo-600 hover:text-indigo-500 underline cursor-pointer"
+                >
+                  Syarat dan Ketentuan
+                </button>{" "}
+                <span>serta</span>{" "}
+                <button
+                  type="button"
+                  onClick={() => setShowPolicy(true)}
+                  className="text-indigo-600 hover:text-indigo-500 underline cursor-pointer"
+                >
+                  Kebijakan Privasi
+                </button>
                 {errors.agreeToTerms && (
                   <p className="mt-1 text-sm text-red-600">
                     {errors.agreeToTerms}
@@ -303,6 +316,18 @@ const Daftar = () => {
                 )}
               </div>
             </div>
+
+            {showTerms && (
+              <Modal onClose={() => setShowTerms(false)}>
+                <Terms />
+              </Modal>
+            )}
+
+            {showPolicy && (
+              <Modal onClose={() => setShowPolicy(false)}>
+                <Policy />
+              </Modal>
+            )}
 
             {errors.submit && (
               <div className="rounded-md bg-red-50 p-4">
