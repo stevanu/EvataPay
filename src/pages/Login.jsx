@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Komponen Input yang dapat digunakan kembali
 const InputField = ({
@@ -104,6 +105,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -150,13 +152,18 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // Simulasi proses login
+      // 🔍 DEBUG: tampilkan email & password
+      console.log("Email:", formData.email);
+      console.log("Password:", formData.password);
+
+      // simulasi login API
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Login data:", formData);
-      // Biasanya akan ada panggilan API dan redirect ke dashboard
+
+      localStorage.setItem("isLogin", "true");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
-      setErrors({ submit: "Terjadi kesalahan saat login. Silakan coba lagi." });
+      setErrors({ submit: "Terjadi kesalahan saat login." });
     } finally {
       setIsLoading(false);
     }
