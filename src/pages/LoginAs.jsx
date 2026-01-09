@@ -169,6 +169,47 @@ const Login = () => {
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   if (!validateForm()) return;
+
+  //   setIsLoading(true);
+
+  //   try {
+  //     // DEBUG sementara
+  //     console.log("Email:", formData.email);
+  //     console.log("Password:", formData.password);
+
+  //     const response = await fetch("http://localhost:7000/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         email: formData.email,
+  //         password: formData.password,
+  //       }),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (!response.ok) {
+  //       throw new Error(data.message || "Login gagal");
+  //     }
+
+  //     // SIMPAN TOKEN / STATUS LOGIN
+  //     localStorage.setItem("token", data.token);
+
+  //     // REDIRECT
+  //     navigate("/dashboard");
+  //   } catch (error) {
+  //     setErrors({ submit: error.message });
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-160 w-full bg-white rounded-2xl shadow-xl overflow-hidden">
